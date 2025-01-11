@@ -1,14 +1,21 @@
 {
   "name": "url-shortener",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "nodemon src/server.js",
+    "start": "node src/server.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:generate": "prisma generate",
+    "prisma:studio": "prisma studio"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "description": "",
+  "author": "Edwin Anajemba",
+  "license": "MIT",
+  "description": "A URL Shortener API to shorten URLs, track usage stats, and provide link expiration or custom aliases.",
   "dependencies": {
     "@prisma/client": "^6.2.1",
     "body-parser": "^1.20.3",
