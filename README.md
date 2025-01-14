@@ -10,11 +10,27 @@ A simple API to shorten URLs, track usage stats, and provide link expiration or 
 
 ---
 
+
+## Screenshots
+![Screenshot 1](shorten.png)
+This is a screenshot of the shorten url api.
+
+![Screenshot 1](redirect.png)
+This is a screenshot of the redirect url api.
+
+![Screenshot 2](cleanup.png)
+This is a screenshot of the cleanup url api.
+
+![Screenshot 3](prisma.png)
+This is a screenshot of the prisma postgres database.
+
+---
+
 ## Installation
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/url-shortener.git
+   git clone https://github.com/isommie/url-shortener.git
    cd url-shortener
    ```
 
