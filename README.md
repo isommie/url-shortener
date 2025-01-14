@@ -28,33 +28,44 @@ A simple API to shorten URLs, track usage stats, and provide link expiration or 
      ```env
      DATABASE_URL=postgresql://username:password@localhost:5432/url_shortener
      PORT=3000
+     NODE_ENV=development
      ```
 
-4. Initialize the database:
+4. Initialize the database using Prisma:
    ```bash
    npx prisma migrate dev
    ```
 
+   - Run the Prisma Studio to explore your database visually:
+     ```bash
+     npx prisma studio
+     ```
+
 ---
 
-## Usage
+## Running the Backend Locally
 
-### Run the server in development mode:
-```bash
-npm run dev
-```
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
 
-### Run the server in production mode:
-```bash
-npm start
-```
+2. Start the server in production mode:
+   ```bash
+   npm start
+   ```
+
+3. Access the Swagger API Documentation at:
+   ```
+   http://localhost:3000/api/docs
+   ```
 
 ---
 
 ## API Endpoints
 
 ### 1. **Shorten URL**
-- **POST /shorten**
+- **POST /api/url/shorten**
 - **Request Body**:
   ```json
   {
@@ -66,7 +77,7 @@ npm start
 - **Response**:
   ```json
   {
-    "message": "URL shortened successfully.",
+    "message": "Shortened URL created successfully.",
     "shortUrl": "http://localhost:3000/my-custom-alias"
   }
   ```
@@ -76,7 +87,7 @@ npm start
 - Redirects to the original URL if it exists and hasn’t expired.
 
 ### 3. **Get URL Stats**
-- **GET /stats/:shortUrl**
+- **GET /api/url/stats/:shortUrl**
 - **Response**:
   ```json
   {
@@ -87,6 +98,28 @@ npm start
     "expiresAt": "2025-12-31T23:59:59Z"
   }
   ```
+
+### 4. **Delete Expired URLs**
+- **DELETE /api/url/cleanup**
+- **Response**:
+  ```json
+  {
+    "message": "Expired URLs cleaned up successfully.",
+    "deletedCount": 5
+  }
+  ```
+
+---
+
+## Database Schema and API Visuals
+
+### Database Schema
+![Database Schema](./assets/database-schema.png)
+
+### API Workflow
+![API Workflow](./assets/api-workflow.png)
+
+- Use the `/assets` folder in the repository to store these images.
 
 ---
 
@@ -103,7 +136,7 @@ npm start
 
 - **Prisma Studio** (Database Explorer):
   ```bash
-  npm run prisma:studio
+  npx prisma studio
   ```
 
 ---
@@ -111,4 +144,4 @@ npm start
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
-```
+
