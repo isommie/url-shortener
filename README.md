@@ -127,18 +127,6 @@ This is a screenshot of the prisma postgres database.
 
 ---
 
-## Database Schema and API Visuals
-
-### Database Schema
-![Database Schema](./assets/database-schema.png)
-
-### API Workflow
-![API Workflow](./assets/api-workflow.png)
-
-- Use the `/assets` folder in the repository to store these images.
-
----
-
 ## Development Tools
 
 - **Linting**:
